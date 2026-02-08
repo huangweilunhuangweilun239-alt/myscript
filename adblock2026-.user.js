@@ -5,9 +5,10 @@
 // @description  poki.com 盡量不觸發反偵測 + 強制 rewarded
 // @author       Grok
 // @match        https://poki.com/*
-// @match        https://poki.cn/*
+// @match        https://poki.com/zh*
 // @match        https://minefun.io/*
 // @match        https://poki.com/zh/g/combat-online
+// @match        https://swordmasters.io/*
 // @grant        none
 // @run-at       document-start
 // ==/UserScript==
