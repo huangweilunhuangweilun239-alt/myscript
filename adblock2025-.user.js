@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name         Poki 零广告 + 强制奖励 (最终版 2025)
+// @name         Poki 零廣告 + 強制獎勵 (最終版 2025)
 // @namespace    http://tampermonkey.net/
 // @version      1.3
-// @description  poki.com 零广告 + 强制拿奖励（伪装adsBlocked false）
-// @author       Grok
+// @description  poki.com 零廣告 + 強制拿獎勵（偽裝adsBlocked false）
+// @author       baiyan
 // @match        https://poki.com/*
-// @match        https://poki.cn/*
+// @match        https://poki.com/zh*
 // @grant        none
 // @run-at       document-start
 // ==/UserScript==
@@ -13,7 +13,7 @@
 (function() {
     'use strict';
  
-    // 隐藏广告元素
+    // 隱藏廣告元素
     const adStyle = document.createElement('style');
     adStyle.textContent = `
         iframe[src*="ads"], iframe[src*="ad"], 
@@ -27,7 +27,7 @@
     `;
     (document.head || document.documentElement).appendChild(adStyle);
  
-    // 延迟hook，等PokiSDK加载后再伪装
+    // 延遲hook，等PokiSDK載入後再偽裝
     const hookSDK = () => {
         if (!window.PokiSDK) return setTimeout(hookSDK, 100);
  
@@ -38,7 +38,7 @@
                 if (prop === 'rewardedBreak') {
                     return function(preCallback) {
                         if (typeof preCallback === 'function') preCallback();
-                        console.log('强制奖励：直接成功！');
+                        console.log('強制獎勵：直接成功！');
                         return Promise.resolve(true);
                     };
                 }
@@ -49,13 +49,13 @@
                     };
                 }
                 if (prop === 'adsBlocked') {
-                    return () => false;  // 伪装没有屏蔽广告
+                    return () => false;  // 偽裝沒有屏蔽廣告
                 }
                 return target[prop];
             }
         });
  
-        console.log('PokiSDK 已成功hook + 伪装无广告屏蔽！');
+        console.log('PokiSDK 已成功hook + 偽裝無廣告屏蔽！');
     };
  
     hookSDK();
