@@ -6,6 +6,8 @@
 // @author       baiyan
 // @match        https://poki.com/*
 // @match        https://poki.com/zh*
+// @match        https://minefun.io/*
+// @match        https://swordmasters.io/*
 // @grant        none
 // @run-at       document-start
 // ==/UserScript==
