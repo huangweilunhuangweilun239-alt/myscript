@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.4
 // @description  poki.com 盡量不觸發反偵測 + 強制 rewarded
-// @author       Grok
+// @author       baiyan
 // @match        https://poki.com/*
 // @match        https://poki.com/zh*
 // @match        https://minefun.io/*
